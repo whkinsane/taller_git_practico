@@ -1,0 +1,20 @@
+# Reflexión Final
+
+### 1. ¿Qué fue lo más difícil de la actividad? ¿Qué te costó más entender?
+Lo más difícil fue comprender el funcionamiento del `git rebase` y cómo se diferencia de un `git merge` tradicional. Entender que el rebase reescribe el pasado moviendo la base de los commits de una rama sobre otra puede ser confuso al principio, especialmente al visualizar cómo cambia el árbol de commits con comandos como el `git reflog`.
+
+### 2. ¿Cuál de todos los comandos crees que usarás con más frecuencia y por qué?
+Los comandos de uso diario serán `git status`, `git add` y `git commit`. A nivel intermedio, `git pull` y `git push` serán indispensables para mantener el trabajo sincronizado con el equipo. En situaciones de error, `git restore` será muy frecuente para limpiar pruebas rápidas que no salieron bien.
+
+### 3. ¿En qué situaciones usarías el comando que deshace el último commit eliminando cambios frente al que crea un commit inverso?
+*   **`git reset --hard` (Eliminar cambios):** Lo usaría únicamente de forma local en cambios experimentales que salieron mal, que estoy seguro de que no necesito y que **no han sido subidos a GitHub**, ya que borra el historial de forma destructiva.
+*   **`git revert` (Commit inverso):** Lo usaría cuando el commit erróneo ya **fue subido al repositorio remoto (GitHub)** y compartido con el equipo. Al crear un commit inverso, no altero ni rompo el historial de mis compañeros, manteniendo una sincronía segura.
+
+### 4. ¿Cuándo preferirías descargar cambios sin fusionar (fetch) en lugar de descargar y fusionar (pull)?
+Preferiría usar `git fetch` cuando llevo mucho tiempo sin actualizar mi código local y quiero revisar de forma segura qué ha hecho mi equipo en GitHub (usando `git log`) antes de meter esos cambios directamente a mis archivos. Esto evita que ocurran conflictos automáticos inesperados en mi espacio de trabajo actual.
+
+### 5. ¿Por qué es peligroso usar el comando que fuerza el push (push --force)?
+Es altamente peligroso porque `git push --force` sobrescribe obligatoriamente el historial del servidor remoto con el historial de tu computadora local. Si un compañero subió commits al repositorio remoto y tú fuerzas el push sin tener esos cambios, **borrarás permanentemente el trabajo de tus compañeros** en GitHub, rompiendo su sincronización.
+
+### 6. ¿Qué aprendiste que no sabías antes de esta actividad?
+Aprendí la existencia y el poder de herramientas avanzadas como `git reflog`, que actúa como una red de seguridad definitiva para recuperar commits que parecían destruidos con resets agresivos. También aprendí a preparar archivos de forma quirúrgica usando `git add -p` y a corregir mensajes de commit erróneos al instante con `git commit --amend`.
